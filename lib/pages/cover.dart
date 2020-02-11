@@ -21,7 +21,7 @@ class _CoverState extends State<Cover> {
                 child: AnimatedTurtleView(
                   animationDuration: Duration(milliseconds: 500),
                   child: Container(
-                    height: 200,
+                    height: MediaQuery.of(context).size.height / 2.0,
                     width: double.infinity,
                   ),
                   commands: [
