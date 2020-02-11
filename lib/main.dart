@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_turtle_slide/pages/example1.dart';
 
 import 'pages/agenda.dart';
+import 'pages/components.dart';
 import 'pages/cover.dart';
+import 'pages/dsl.dart';
+import 'pages/dsl_explained.dart';
 import 'pages/end.dart';
+import 'pages/example2.dart';
 import 'pages/flutter_turtle_intro.dart';
 import 'pages/history.dart';
 import 'pages/intro.dart';
@@ -49,6 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
             FlutterTurtleIntroPage(),
             Example1Code(),
             Example1(),
+            Example2Code(),
+            Example2(),
+            ComponentsPage(),
+            DSLPage(),
+            DSLExplainedPage(),
             EndPage(),
           ]),
         ),

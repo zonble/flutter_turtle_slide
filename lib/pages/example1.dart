@@ -19,7 +19,7 @@ class Example1Code extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('REPEAT 36 \n[ LEFT 10 REPEAT 360 [ LEFT 1 FD 3 ]]',
+                child: Text('REPEAT 36 [LEFT 10 REPEAT 360 [LEFT 1 FD 3]]',
                     style: TextStyle(fontFamily: 'Courier')),
               ),
               Divider(),
@@ -33,16 +33,16 @@ class Example1Code extends StatelessWidget {
 AnimatedTurtleView(
   animationDuration: Duration(milliseconds: 500),
   child: Container(
-      height: double.infinity,
-      width: double.infinity,
+    height: double.infinity,
+    width: double.infinity,
   ),
   commands: [
-      PenDown(),
-      SetColor((_) => Colors.white60),
-      Repeat((_) => 36, [
+    PenDown(),
+    SetColor((_) => Colors.white60),
+    Repeat((_) => 36, [
       Left((_) => 10),
       Repeat((_) => 360, [Left((_) => 1), Forward((_) => 3)])
-      ])
+    ])
   ],
 ),
                 ''', style: TextStyle(fontFamily: 'Courier')),
