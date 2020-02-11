@@ -30,7 +30,7 @@ class HistoryPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                  '* Today, Turtle Graphics libaries for Python 3 and JavaScript are still popular.'),
+                  '* Today, Turtle Graphics libaries are still popular.'),
             ),
             Spacer(),
             Padding(

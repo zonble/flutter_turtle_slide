@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_turtle_slide/pages/history.dart';
+import 'package:flutter_turtle_slide/pages/example1.dart';
 
 import 'pages/agenda.dart';
 import 'pages/cover.dart';
 import 'pages/end.dart';
+import 'pages/flutter_turtle_intro.dart';
+import 'pages/history.dart';
 import 'pages/intro.dart';
+import 'pages/today.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
             AgendaPage(),
             IntroPage(),
             HistoryPage(),
+            TodayPage(),
+            FlutterTurtleIntroPage(),
+            Example1Code(),
+            Example1(),
             EndPage(),
           ]),
         ),
