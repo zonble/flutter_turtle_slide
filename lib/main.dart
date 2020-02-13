@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_turtle_slide/pages/example1.dart';
 
 import 'pages/agenda.dart';
+import 'pages/animation.dart';
 import 'pages/components.dart';
 import 'pages/cover.dart';
+import 'pages/custom_paint.dart';
 import 'pages/dsl.dart';
 import 'pages/dsl_explained.dart';
 import 'pages/end.dart';
+import 'pages/example1.dart';
 import 'pages/example2.dart';
 import 'pages/flutter_turtle_intro.dart';
 import 'pages/history.dart';
 import 'pages/intro.dart';
+import 'pages/painter.dart';
 import 'pages/today.dart';
 
 void main() => runApp(MyApp());
@@ -58,6 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ComponentsPage(),
             DSLPage(),
             DSLExplainedPage(),
+            CustomPaintPage(),
+            PainterPage(),
+            AnimationPage(),
             EndPage(),
           ]),
         ),
