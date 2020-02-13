@@ -65,7 +65,7 @@ class _Example2State extends State<Example2> {
             ),
             commands: [
               SetMacro('tree', [
-                IfElse((_) => _['l'] < 2.0, [
+                IfElse((_) => _['l'] < 5.0, [
                   Stop()
                 ], [
                   IfElse((_) => _['l'] < 10.0, [SetColor((_) => Colors.green)],
@@ -73,15 +73,15 @@ class _Example2State extends State<Example2> {
                   SetStrokeWidth((_) => _['l'] / 3.0),
                   Forward((_) => _['l']),
                   Right((_) => 30.0),
-                  RunMacro('tree', (_) => {'l': _['l'] * 3.0 / 4.0}),
+                  RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                   Left((_) => 60),
-                  RunMacro('tree', (_) => {'l': _['l'] * 3.0 / 4.0}),
+                  RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                 ]),
               ]),
-              PenDown(),
               Back((_) => 120),
+              PenDown(),
               SetColor((_) => Colors.brown),
-              RunMacro('tree', (_) => {'l': 100.0})
+              RunMacro('tree', (_) => {'l': 80.0})
             ],
           ),
         ),
