@@ -36,7 +36,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var pageController = PageController();
+  var _pageController = PageController();
+  var _page = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      var currentPage = _pageController.page.toInt() + 1;
+      if (currentPage != _page) {
+        setState(() => _page = currentPage);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,31 +60,41 @@ class _MyHomePageState extends State<MyHomePage> {
             constraints: BoxConstraints(maxWidth: 1024, maxHeight: 768),
             child: GestureDetector(
               onTap: () {
-                var page = (pageController.page + 1).toInt();
-                pageController.animateToPage(page,
+                if (!_pageController.hasClients) return;
+                var page = (_pageController.page + 1).toInt();
+                _pageController.animateToPage(page,
                     duration: Duration(milliseconds: 250),
                     curve: Curves.easeInCubic);
               },
-              child: PageView(controller: pageController, children: <Widget>[
-                Cover(),
-                AgendaPage(),
-                IntroPage(),
-                HistoryPage(),
-                TodayPage(),
-                FlutterTurtleIntroPage(),
-                Example1Code(),
-                Example1(),
-                Example2Code(),
-                Example2(),
-                Example22(),
-                ComponentsPage(),
-                DSLPage(),
-                DSLExplainedPage(),
-                CustomPaintPage(),
-                PainterPage(),
-                AnimationPage(),
-                EndPage(),
-              ]),
+              child: Stack(
+                children: <Widget>[
+                  PageView(controller: _pageController, children: <Widget>[
+                    Cover(),
+                    AgendaPage(),
+                    IntroPage(),
+                    HistoryPage(),
+                    TodayPage(),
+                    FlutterTurtleIntroPage(),
+                    Example1Code(),
+                    Example1(),
+                    Example2Code(),
+                    Example2(),
+                    Example22(),
+                    ComponentsPage(),
+                    DSLPage(),
+                    DSLExplainedPage(),
+                    CustomPaintPage(),
+                    PainterPage(),
+                    AnimationPage(),
+                    EndPage(),
+                  ]),
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                          height: 40,
+                          child: Center(child: Text('Page: $_page'))))
+                ],
+              ),
             ),
           ),
         ),

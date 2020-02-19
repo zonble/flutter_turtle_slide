@@ -29,8 +29,8 @@ class HistoryPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                  '* Today, Turtle Graphics libaries are still popular.'),
+              child:
+                  Text('* Today, Turtle Graphics libaries are still popular.'),
             ),
             Spacer(),
             Padding(
@@ -53,6 +53,7 @@ class HistoryPage extends StatelessWidget {
                     style: TextStyle(color: Colors.blue)),
               ),
             ),
+            SizedBox(height: 40),
           ],
         ),
       ),
