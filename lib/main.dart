@@ -39,33 +39,44 @@ class _MyHomePageState extends State<MyHomePage> {
   var pageController = PageController();
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: GestureDetector(
-          onTap: () {
-            var page = (pageController.page + 1).toInt();
-            pageController.animateToPage(page,
-                duration: Duration(milliseconds: 250),
-                curve: Curves.easeInCubic);
-          },
-          child: PageView(controller: pageController, children: <Widget>[
-            Cover(),
-            AgendaPage(),
-            IntroPage(),
-            HistoryPage(),
-            TodayPage(),
-            FlutterTurtleIntroPage(),
-            Example1Code(),
-            Example1(),
-            Example2Code(),
-            Example2(),
-            ComponentsPage(),
-            DSLPage(),
-            DSLExplainedPage(),
-            CustomPaintPage(),
-            PainterPage(),
-            AnimationPage(),
-            EndPage(),
-          ]),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 1024, maxHeight: 768),
+            child: GestureDetector(
+              onTap: () {
+                var page = (pageController.page + 1).toInt();
+                pageController.animateToPage(page,
+                    duration: Duration(milliseconds: 250),
+                    curve: Curves.easeInCubic);
+              },
+              child: PageView(controller: pageController, children: <Widget>[
+                Cover(),
+                AgendaPage(),
+                IntroPage(),
+                HistoryPage(),
+                TodayPage(),
+                FlutterTurtleIntroPage(),
+                Example1Code(),
+                Example1(),
+                Example2Code(),
+                Example2(),
+                Example22(),
+                ComponentsPage(),
+                DSLPage(),
+                DSLExplainedPage(),
+                CustomPaintPage(),
+                PainterPage(),
+                AnimationPage(),
+                EndPage(),
+              ]),
+            ),
+          ),
         ),
-      );
+      ),
+    );
+  }
 }

@@ -39,7 +39,7 @@ class _CoverState extends State<Cover> {
           SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('Turtle Graphics on Flutter',
+            child: Text('Turtle Graphics in Flutter',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.display1),
           ),

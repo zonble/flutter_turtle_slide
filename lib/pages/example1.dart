@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 import 'package:flutter_turtle/flutter_turtle.dart';
 
 class Example1Code extends StatelessWidget {
@@ -19,7 +20,7 @@ class Example1Code extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('REPEAT 36 [LEFT 10 REPEAT 360 [LEFT 1 FD 3]]',
+                child: Text('PD\nSETC 0\nREPEAT 36 [LEFT 10 REPEAT 360 [LEFT 1 FD 3]]',
                     style: TextStyle(fontFamily: 'Courier')),
               ),
               Divider(),
@@ -29,12 +30,14 @@ class Example1Code extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(''' 
+                child: Container(
+                  height: 200,
+                  child: SyntaxView(
+                    code: ''' 
 AnimatedTurtleView(
   animationDuration: Duration(milliseconds: 500),
   child: Container(
-    height: double.infinity,
-    width: double.infinity,
+    height: double.infinity, width: double.infinity,
   ),
   commands: [
     PenDown(),
@@ -45,7 +48,13 @@ AnimatedTurtleView(
     ])
   ],
 ),
-                ''', style: TextStyle(fontFamily: 'Courier')),
+                  ''',
+                    syntax: Syntax.DART,
+                    syntaxTheme: SyntaxTheme.dracula(),
+                    withZoom: true,
+                    withLinesCount: true,
+                  ),
+                ),
               ),
             ],
           ),

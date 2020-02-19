@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
 class CustomPaintPage extends StatelessWidget {
   @override
@@ -20,14 +21,23 @@ class CustomPaintPage extends StatelessWidget {
               child: Text('- Use a painter within it.'),
             ),
             Divider(),
-            Text('''
+            Container(
+              height: 150,
+              child: SyntaxView(
+                code: '''
   Widget build(BuildContext context) => CustomPaint(
         painter: TurtlePainter(_instructions),
         size: widget.size,
         isComplex: widget.isComplex,
         child: widget.child,
       );
-            '''),
+              ''',
+                syntax: Syntax.DART,
+                syntaxTheme: SyntaxTheme.dracula(),
+                withZoom: true,
+                withLinesCount: true,
+              ),
+            ),
           ],
         ),
       ),

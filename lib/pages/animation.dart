@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
 class AnimationPage extends StatelessWidget {
   @override
@@ -14,17 +15,18 @@ class AnimationPage extends StatelessWidget {
                 Divider(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child:
-                  Text('- Updates states quickly.'),
+                  child: Text('- Updates states quickly.'),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child:
-                  Text('- You can use TweenAnimaionBuilder, AnimatedBuilder, AnimationController...etc'),
+                  child: Text(
+                      '- You can use TweenAnimaionBuilder, AnimatedBuilder, AnimationController...etc'),
                 ),
-
                 Divider(),
-                Text('''
+                Container(
+                  height: 300,
+                  child: SyntaxView(
+                    code: '''
   @override
   Widget build(BuildContext context) {
     _controller.value = 0;
@@ -44,7 +46,13 @@ class AnimationPage extends StatelessWidget {
           );
         });
   }
-            ''', style: TextStyle(fontFamily: 'Courier')),
+            ''',
+                    syntax: Syntax.DART,
+                    syntaxTheme: SyntaxTheme.dracula(),
+                    withZoom: true,
+                    withLinesCount: true,
+                  ),
+                ),
               ],
             ),
           ),

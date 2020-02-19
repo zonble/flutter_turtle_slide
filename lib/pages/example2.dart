@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 import 'package:flutter_turtle/flutter_turtle.dart';
 
 class Example2Code extends StatelessWidget {
@@ -15,7 +16,10 @@ class Example2Code extends StatelessWidget {
               Divider(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('''
+                child: Container(
+                  height: 300,
+                  child: SyntaxView(
+                    code: '''
 AnimatedTurtleView(
   commands: [
     SetMacro('tree', [
@@ -36,7 +40,13 @@ AnimatedTurtleView(
     RunMacro('tree', (_) => {'l': 100.0})
  ],
 )
-                ''', style: TextStyle(fontFamily: 'Courier')),
+                  ''',
+                    syntax: Syntax.DART,
+                    syntaxTheme: SyntaxTheme.dracula(),
+                    withZoom: true,
+                    withLinesCount: true,
+                  ),
+                ),
               ),
             ],
           ),
@@ -65,16 +75,60 @@ class _Example2State extends State<Example2> {
             ),
             commands: [
               SetMacro('tree', [
-                IfElse((_) => _['l'] < 5.0, [
+                IfElse((_) => _['l'] < 10.0, [
                   Stop()
                 ], [
-                  IfElse((_) => _['l'] < 10.0, [SetColor((_) => Colors.green)],
+                  IfElse((_) => _['l'] < 20.0, [SetColor((_) => Colors.green)],
                       [SetColor((_) => Colors.brown)]),
                   SetStrokeWidth((_) => _['l'] / 3.0),
                   Forward((_) => _['l']),
                   Right((_) => 30.0),
                   RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                   Left((_) => 60),
+                  RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
+                ]),
+              ]),
+              Back((_) => 120),
+              PenDown(),
+              SetColor((_) => Colors.brown),
+              RunMacro('tree', (_) => {'l': 80.0})
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Example22 extends StatefulWidget {
+  @override
+  _Example22State createState() => _Example22State();
+}
+
+class _Example22State extends State<Example22> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => setState(() {}),
+      child: ClipRect(
+        child: Center(
+          child: AnimatedTurtleView(
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+            ),
+            commands: [
+              SetMacro('tree', [
+                IfElse((_) => _['l'] < 10.0, [
+                  Stop()
+                ], [
+                  IfElse((_) => _['l'] < 20.0, [SetColor((_) => Colors.green)],
+                      [SetColor((_) => Colors.brown)]),
+                  SetStrokeWidth((_) => _['l'] / 3.0),
+                  Forward((_) => _['l']),
+                  Right((_) => 30.0),
+                  RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
+                  Left((_) => 50),
                   RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                 ]),
               ]),

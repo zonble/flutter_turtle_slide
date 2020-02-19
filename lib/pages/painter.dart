@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
 class PainterPage extends StatelessWidget {
   @override
@@ -18,7 +19,10 @@ class PainterPage extends StatelessWidget {
                       Text('- You can use Canvas, Paint and TextPainter here'),
                 ),
                 Divider(),
-                Text('''
+                Container(
+                  height: 300,
+                  child: SyntaxView(
+                    code: '''
 class TurtlePainter extends CustomPainter {
   final List<Instruction> commands;
 
@@ -40,7 +44,13 @@ class TurtlePainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
 
-            ''', style: TextStyle(fontFamily: 'Courier')),
+            ''',
+                    syntax: Syntax.DART,
+                    syntaxTheme: SyntaxTheme.dracula(),
+                    withZoom: true,
+                    withLinesCount: true,
+                  ),
+                ),
               ],
             ),
           ),
