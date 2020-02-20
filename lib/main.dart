@@ -36,17 +36,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _pageController = PageController();
-  var _page = 1;
+  PageController _pageController = PageController();
+  GlobalKey<_PageNumberState> _key = GlobalKey();
+  int _page = 1;
 
   @override
   void initState() {
     super.initState();
     _pageController.addListener(() {
       var currentPage = _pageController.page.toInt() + 1;
-      if (currentPage != _page) {
-        setState(() => _page = currentPage);
-      }
+      _page = currentPage;
+      _key.currentState.setPage(_page);
     });
   }
 
@@ -90,9 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]),
                   Align(
                       alignment: Alignment.bottomCenter,
-                      child: Container(
-                          height: 40,
-                          child: Center(child: Text('Page: $_page'))))
+                      child: PageNumber(key: _key, page: _page))
                 ],
               ),
             ),
@@ -100,5 +98,37 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+}
+
+class PageNumber extends StatefulWidget {
+  const PageNumber({
+    Key key,
+    @required int page,
+  })  : initialPage = page,
+        super(key: key);
+
+  final int initialPage;
+
+  @override
+  _PageNumberState createState() => _PageNumberState();
+}
+
+class _PageNumberState extends State<PageNumber> {
+  int _page;
+
+  @override
+  void initState() {
+    super.initState();
+    _page = widget.initialPage;
+  }
+
+  void setPage(int pageIndex) {
+    setState(() => _page = pageIndex);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(height: 40, child: Center(child: Text('Page: $_page')));
   }
 }
