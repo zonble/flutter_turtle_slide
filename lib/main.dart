@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'pages/agenda.dart';
@@ -51,6 +53,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void nextPage() {
+    if (!_pageController.hasClients) return;
+    var page = (_pageController.page + 1).toInt();
+    _pageController.animateToPage(page,
+        duration: Duration(milliseconds: 250), curve: Curves.easeInCubic);
+  }
+
+  void previousPage() {
+    if (!_pageController.hasClients) return;
+    var page = max(0, (_pageController.page - 1).toInt());
+    _pageController.animateToPage(page,
+        duration: Duration(milliseconds: 250), curve: Curves.easeInCubic);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,13 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 1024, maxHeight: 768),
             child: GestureDetector(
-              onTap: () {
-                if (!_pageController.hasClients) return;
-                var page = (_pageController.page + 1).toInt();
-                _pageController.animateToPage(page,
-                    duration: Duration(milliseconds: 250),
-                    curve: Curves.easeInCubic);
-              },
+              onTap: nextPage,
               child: Stack(
                 children: <Widget>[
                   PageView(controller: _pageController, children: <Widget>[
@@ -92,7 +102,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]),
                   Align(
                       alignment: Alignment.bottomCenter,
-                      child: PageNumber(key: _key, page: _page))
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.arrow_left, color: Colors.grey),
+                              onPressed: previousPage),
+                          PageNumber(key: _key, page: _page),
+                          IconButton(
+                              icon: Icon(Icons.arrow_right, color: Colors.grey),
+                              onPressed: nextPage),
+                        ],
+                      ))
                 ],
               ),
             ),
@@ -131,6 +152,12 @@ class _PageNumberState extends State<PageNumber> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(height: 40, child: Center(child: Text('Page: $_page')));
+    return Container(
+        height: 40,
+        child: Center(
+            child: Text(
+          'Page: $_page',
+          style: TextStyle(color: Colors.grey),
+        )));
   }
 }

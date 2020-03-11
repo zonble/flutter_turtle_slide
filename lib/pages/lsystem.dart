@@ -10,7 +10,7 @@ class LSystemPage extends StatefulWidget {
 }
 
 class _LSystemPageState extends State<LSystemPage> {
-  double _value = 20.0;
+  double _value = 10.0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,15 @@ class _LSystemPageState extends State<LSystemPage> {
                 IfElse((_) => _['l'] < 10.0, [
                   Stop()
                 ], [
-                  IfElse((_) => _['l'] < 30.0, [SetColor((_) => Colors.green)],
-                      [SetColor((_) => Colors.brown)]),
-                  SetStrokeWidth((_) => min(_['l'] / 5.0, 50.0)),
+                  IfElse((_) => _['l'] < 30.0, [
+                    SetColor((_) => Colors.green),
+                    SetStrokeWidth((_) => 8),
+                  ], [
+                    SetColor((_) => Colors.brown),
+                    SetStrokeWidth((_) => min(_['l'] / 5.0, 50.0)),
+                  ]),
+                  Back((_) => 4.0),
+                  Forward((_) => 4.0),
                   Forward((_) => min(_['l'], 60.0)),
                   Left((_) => 20.0),
                   RunMacro('a', (_) => {'l': (_['l'] / 5.0 * 4.0)}),
@@ -38,11 +44,17 @@ class _LSystemPageState extends State<LSystemPage> {
                 IfElse((_) => _['l'] < 10.0, [
                   Stop()
                 ], [
-                  IfElse((_) => _['l'] < 30.0, [SetColor((_) => Colors.green)],
-                      [SetColor((_) => Colors.brown)]),
-                  SetStrokeWidth((_) => min(_['l'] / 5.0, 50.0)),
+                  IfElse((_) => _['l'] < 30.0, [
+                    SetColor((_) => Colors.green),
+                    SetStrokeWidth((_) => 8),
+                  ], [
+                    SetColor((_) => Colors.brown),
+                    SetStrokeWidth((_) => min(_['l'] / 5.0, 50.0)),
+                  ]),
+                  Back((_) => 4.0),
+                  Forward((_) => 4.0),
                   Forward((_) => min(_['l'], 60.0)),
-                  Right((_) => 10.0),
+                  Right((_) => 20.0),
                   RunMacro('a', (_) => {'l': (_['l'] / 5.0 * 4.0)}),
                 ]),
               ]),
@@ -52,21 +64,27 @@ class _LSystemPageState extends State<LSystemPage> {
             ],
             child: Container(width: double.infinity, height: 400),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 20),
+          Container(
+            width: 300,
+            child: Slider(
+              min: 10.0,
+              max: 300.0,
+              value: _value,
+              onChanged: (value) => setState(() => _value = value),
+            ),
+          ),
           Text('L System'),
           FlatButton(
             child: Text('https://en.wikipedia.org/wiki/L-system'),
             textColor: Theme.of(context).primaryColor,
             onPressed: () => launch('https://en.wikipedia.org/wiki/L-system'),
           ),
-          Container(
-            width: 300,
-            child: Slider(
-              min: 20.0,
-              max: 300.0,
-              value: _value,
-              onChanged: (value) => setState(() => _value = value),
-            ),
+          FlatButton(
+            child: Text('FYI: 宇宙的隐秘维度，“分形”神奇的萬物法則|老吳alien'),
+            textColor: Theme.of(context).primaryColor,
+            onPressed: () =>
+                launch('https://www.youtube.com/watch?v=V3d2WlpPBzw'),
           ),
         ],
       ),

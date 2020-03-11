@@ -53,6 +53,15 @@ class HistoryPage extends StatelessWidget {
                     style: TextStyle(color: Colors.blue)),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: () => launch(
+                    'https://archive.org/details/a2gs_LogoWriter_GS_1989_Logo_Computer_Systems'),
+                child: Text('LogoWriter GS 1989',
+                    style: TextStyle(color: Colors.blue)),
+              ),
+            ),
             SizedBox(height: 40),
           ],
         ),

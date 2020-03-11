@@ -35,7 +35,7 @@ AnimatedTurtleView(
       ]),
     ]),
     PenDown(),
-    Back((_) => 120),
+    Back((_) => 180),
     SetColor((_) => Colors.brown),
     RunMacro('tree', (_) => {'l': 100.0})
  ],
@@ -88,7 +88,7 @@ class _Example2State extends State<Example2> {
                   RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                 ]),
               ]),
-              Back((_) => 120),
+              Back((_) => 180),
               PenDown(),
               SetColor((_) => Colors.brown),
               RunMacro('tree', (_) => {'l': 80.0})
@@ -115,16 +115,6 @@ class _Example22State extends State<Example22> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: 300,
-              child: Slider(
-                min: -20.0,
-                max: 20.0,
-                value: _value,
-                onChanged: (newValue) => setState(() => _value = newValue),
-              ),
-            ),
-            SizedBox(height: 50),
             TurtleView(
               child: Container(width: double.infinity, height: 400),
               commands: [
@@ -144,11 +134,21 @@ class _Example22State extends State<Example22> {
                     RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                   ]),
                 ]),
-                Back((_) => 120),
+                Back((_) => 180),
                 PenDown(),
                 SetColor((_) => Colors.brown),
                 RunMacro('tree', (_) => {'l': 80.0})
               ],
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: 300,
+              child: Slider(
+                min: -20.0,
+                max: 20.0,
+                value: _value,
+                onChanged: (newValue) => setState(() => _value = newValue),
+              ),
             ),
           ],
         ),
