@@ -13,6 +13,7 @@ import 'pages/example2.dart';
 import 'pages/flutter_turtle_intro.dart';
 import 'pages/history.dart';
 import 'pages/intro.dart';
+import 'pages/lsystem.dart';
 import 'pages/painter.dart';
 import 'pages/today.dart';
 
@@ -80,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Example2Code(),
                     Example2(),
                     Example22(),
+                    LSystemPage(),
                     ComponentsPage(),
                     DSLPage(),
                     DSLExplainedPage(),
