@@ -11,7 +11,7 @@ class AgendaPage extends StatelessWidget {
           children: <Widget>[
             Text(
               'Agenda',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
             Divider(),
             Text('* What is Turtle Graphics?'),

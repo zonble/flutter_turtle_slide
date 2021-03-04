@@ -7,19 +7,18 @@ class PainterPage extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(20.0),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Painter', style: Theme.of(context).textTheme.display1),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child:
-                      Text('- You can use Canvas, Paint and TextPainter here'),
-                ),
-                Divider(),
-                Container(
+            child: SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+              Text('Painter', style: Theme.of(context).textTheme.display1),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('- You can use Canvas, Paint and TextPainter here'),
+              ),
+              Divider(),
+              Container(
                   height: 300,
                   child: SyntaxView(
                     code: '''
@@ -49,11 +48,7 @@ class TurtlePainter extends CustomPainter {
                     syntaxTheme: SyntaxTheme.dracula(),
                     withZoom: true,
                     withLinesCount: true,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ));
+                  ))
+            ]))));
   }
 }

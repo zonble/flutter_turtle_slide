@@ -111,48 +111,42 @@ class _Example22State extends State<Example22> {
   @override
   Widget build(BuildContext context) {
     return ClipRect(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TurtleView(
-              child: Container(width: double.infinity, height: 400),
-              commands: [
-                SetMacro('tree', [
-                  IfElse((_) => _['l'] < 10.0, [
-                    Stop()
-                  ], [
-                    IfElse(
-                        (_) => _['l'] < 20.0,
-                        [SetColor((_) => Colors.green)],
-                        [SetColor((_) => Colors.brown)]),
-                    SetStrokeWidth((_) => _['l'] / 3.0),
-                    Forward((_) => _['l']),
-                    Right((_) => 30.0 + _value),
-                    RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
-                    Left((_) => 60 + _value * -1),
-                    RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
-                  ]),
+        child: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+          TurtleView(
+            child: Container(width: double.infinity, height: 400),
+            commands: [
+              SetMacro('tree', [
+                IfElse((_) => _['l'] < 10.0, [
+                  Stop()
+                ], [
+                  IfElse((_) => _['l'] < 20.0, [SetColor((_) => Colors.green)],
+                      [SetColor((_) => Colors.brown)]),
+                  SetStrokeWidth((_) => _['l'] / 3.0),
+                  Forward((_) => _['l']),
+                  Right((_) => 30.0 + _value),
+                  RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
+                  Left((_) => 60 + _value * -1),
+                  RunMacro('tree', (_) => {'l': _['l'] * 4.0 / 5.0}),
                 ]),
-                Back((_) => 180),
-                PenDown(),
-                SetColor((_) => Colors.brown),
-                RunMacro('tree', (_) => {'l': 80.0})
-              ],
-            ),
-            SizedBox(height: 10),
-            Container(
+              ]),
+              Back((_) => 180),
+              PenDown(),
+              SetColor((_) => Colors.brown),
+              RunMacro('tree', (_) => {'l': 80.0})
+            ],
+          ),
+          SizedBox(height: 10),
+          Container(
               width: 300,
               child: Slider(
                 min: -20.0,
                 max: 20.0,
                 value: _value,
                 onChanged: (newValue) => setState(() => _value = newValue),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+              ))
+        ])));
   }
 }
