@@ -11,7 +11,7 @@ class PainterPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-              Text('Painter', style: Theme.of(context).textTheme.display1),
+              Text('Painter', style: Theme.of(context).textTheme.displayLarge),
               Divider(),
               Padding(
                 padding: const EdgeInsets.all(8.0),

@@ -12,7 +12,7 @@ class Example1Code extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-              Text('Example', style: Theme.of(context).textTheme.headline4),
+              Text('Example', style: Theme.of(context).textTheme.headlineSmall),
               Divider(),
               Padding(
                 padding: const EdgeInsets.all(8.0),

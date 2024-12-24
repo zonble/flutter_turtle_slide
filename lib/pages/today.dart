@@ -10,7 +10,7 @@ class TodayPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
             Text('Turtle Graphics Today',
-                style: Theme.of(context).textTheme.display1),
+                style: Theme.of(context).textTheme.displayLarge),
             Divider(),
             Padding(
                 padding: const EdgeInsets.all(8.0),

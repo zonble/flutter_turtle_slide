@@ -9,7 +9,7 @@ class ComponentsPage extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-              Text('Components', style: Theme.of(context).textTheme.headline4),
+              Text('Components', style: Theme.of(context).textTheme.headlineSmall),
               Divider(),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

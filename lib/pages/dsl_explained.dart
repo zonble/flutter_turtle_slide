@@ -10,7 +10,7 @@ class DSLExplainedPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
               Text('Implementation of Turtle DSL ',
-                  style: Theme.of(context).textTheme.display1),
+                  style: Theme.of(context).textTheme.displayLarge),
               Divider(),
               Padding(
                 padding: const EdgeInsets.all(8.0),

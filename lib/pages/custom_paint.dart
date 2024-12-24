@@ -10,7 +10,7 @@ class CustomPaintPage extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-              Text('Custom Paint', style: Theme.of(context).textTheme.display1),
+              Text('Custom Paint', style: Theme.of(context).textTheme.displayLarge),
               Divider(),
               Padding(
                 padding: const EdgeInsets.all(8.0),

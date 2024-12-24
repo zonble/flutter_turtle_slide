@@ -12,7 +12,7 @@ class AnimationPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text('Animations',
-                    style: Theme.of(context).textTheme.headline4),
+                    style: Theme.of(context).textTheme.headlineSmall),
                 Divider(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

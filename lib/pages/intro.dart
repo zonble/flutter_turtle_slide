@@ -16,7 +16,7 @@ class _IntroPageState extends State<IntroPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
               Text('Turtle Graphics',
-                  style: Theme.of(context).textTheme.display1),
+                  style: Theme.of(context).textTheme.displayLarge),
               Divider(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,

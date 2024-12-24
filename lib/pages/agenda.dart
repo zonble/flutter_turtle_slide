@@ -11,7 +11,7 @@ class AgendaPage extends StatelessWidget {
           children: <Widget>[
             Text(
               'Agenda',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Divider(),
             Text('* What is Turtle Graphics?'),
@@ -20,7 +20,7 @@ class AgendaPage extends StatelessWidget {
             SizedBox(height: 4),
             Text('* What enabled me to make the library?'),
             SizedBox(height: 4),
-            Text('  - EDSL (Embeded Domain Specific Language)'),
+            Text('  - EDSL (Embedded Domain Specific Language)'),
             Text('  - Custom Paint'),
             Text('  - Animations in Flutter'),
           ],
