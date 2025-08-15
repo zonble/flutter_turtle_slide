@@ -1,16 +1,15 @@
 # flutter_turtle_slide
 
-A new Flutter project.
+A Flutter presentation app demonstrating turtle graphics concepts and implementation.
 
-## Getting Started
+## What it does
 
-This project is a starting point for a Flutter application.
+This app creates an interactive slide presentation that showcases:
 
-A few resources to get you started if this is your first Flutter project:
+- Turtle graphics history and concepts
+- Live turtle graphics demonstrations using the `flutter_turtle` package
+- Implementation details of turtle graphics in Flutter
+- Animated examples including L-systems and fractals
+- Domain Specific Language (DSL) approach for turtle commands
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Navigate through the slides by tapping or using keyboard controls to explore turtle graphics in Flutter.
